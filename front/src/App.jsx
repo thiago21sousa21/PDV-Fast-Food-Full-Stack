@@ -26,6 +26,8 @@ export default App;
 
 const CsApp = styled.div`
   *{border: 1px solid}
-  border: 1px solid
+  border: 1px solid;
+  max-width: 1080px; 
+  margin: 0 auto 0;
 `;
 
