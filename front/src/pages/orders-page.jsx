@@ -2,6 +2,7 @@ import styled from "styled-components";
 import SearchBar from "../components/orders-componets/SerachBar";
 import Categories from "../components/orders-componets/Categories";
 import Products from "../components/orders-componets/Products";
+import FootCard from "../components/orders-componets/FootCard";
 
 const Orders = () => {
 
@@ -10,7 +11,7 @@ const Orders = () => {
             <SearchBar />
             <Categories />
             <Products />
-
+            <FootCard />
         </CsOrders>
     );
 }
