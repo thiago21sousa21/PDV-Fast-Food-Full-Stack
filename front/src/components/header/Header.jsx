@@ -26,6 +26,7 @@ const CsHeader = styled.div`
     border: 1px solid;
     width: 100%;
     height: 40px;
+    background-color: #125C13;
 
     display: flex;
     justify-content: space-between;

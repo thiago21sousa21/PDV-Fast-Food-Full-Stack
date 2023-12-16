@@ -4,21 +4,25 @@ import Pickups from './pages/pickup-page'
 import Orders from './pages/orders-page'
 import { styled } from "styled-components";
 import Header from './components/header/Header';
-
+import productsContext from './contexts/products-context';
+import { useState } from 'react';
 
 function App() {
+  const [products, setProducts] = useState(undefined)
 
   return (
-    <CsApp>
-      <Header />
-      <BrowserRouter>
-        <Routes>
-          <Route path='/cozinha' element={<Kitchen />} />
-          <Route path='/pedidos' element={<Orders />} />
-          <Route path='/retirada' element={<Pickups />} />
-        </Routes>
-      </BrowserRouter>
-    </CsApp>
+    <productsContext.Provider value={{ products, setProducts }}>
+      <CsApp>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path='/cozinha' element={<Kitchen />} />
+            <Route path='/' element={<Orders />} />
+            <Route path='/retirada' element={<Pickups />} />
+          </Routes>
+        </BrowserRouter>
+      </CsApp>
+    </productsContext.Provider>
   )
 }
 
