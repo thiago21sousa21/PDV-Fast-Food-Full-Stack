@@ -11,6 +11,12 @@ const Products = () => {
     const acompanhamentos = [1, 1, 1, 1];
     const sobremesas = [1, 1, 1, 1];
 
+    const data = {
+        combos,
+        acompanhamentos,
+        sobremesas,
+    }
+
     return (
         <CsProducts>
             <h2>Produtos</h2>
