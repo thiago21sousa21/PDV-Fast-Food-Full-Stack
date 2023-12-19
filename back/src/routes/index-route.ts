@@ -1,15 +1,11 @@
 import { Router } from "express";
 import healthRouter from "./health-route"
-import gamesRouter from "./games-route"
-import participantsRouter from "./participants-route"
-import betsRouter from "./bets-route"
+import productsRouter from "./products-route"
 
 const indexRoute = Router();
 
 indexRoute
-    .use('/health',healthRouter)
-    .use('/participants',participantsRouter)
-    .use('/games',gamesRouter) 
-    .use('/bets',betsRouter)
+    .use('/health', healthRouter)
+    .use('/products', productsRouter)
 
 export default indexRoute;

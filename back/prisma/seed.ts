@@ -1,4 +1,4 @@
-import { Products } from "@prisma/client";
+import { NewProduct } from "../src/protocols";
 import prisma from "../src/database";
 
 const categories = ['combos', 'acompanhamentos', 'bebidas', 'sobremesas']
@@ -13,9 +13,6 @@ const createCategories = async () => {
     }
 };
 
-
-
-type NewProduct = Omit<Products, 'id'>
 const products: NewProduct[] = [
     {
         name: "Smash galinha",
@@ -130,8 +127,6 @@ const products: NewProduct[] = [
         value: 500
     }
 ];
-
-
 
 const createProducts = async () => {
     for (let i = 0; i < products.length; i++) {
