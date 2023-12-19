@@ -35,11 +35,12 @@ model OrdersProducts {
 }
 
 model Products {
-    id         Int    @id @default(autoincrement())
-    name       String
-    image      String
-    value      Int
-    categoryId Int
+    id          Int    @id @default(autoincrement())
+    name        String @unique
+    image       String
+    value       Int
+    categoryId  Int
+    description String
 
     ordersProducts OrdersProducts[]
     categories     Categories       @relation(fields: [categoryId], references: [id])
