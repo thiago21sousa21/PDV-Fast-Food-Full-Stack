@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
-
-const Product = ({ info }) => {
+const Product = ({ info, category, position, getDescriptionProduct }) => {
     const { image, description, name, categoryId } = info;
     return (
         <CsProduct
             $categoryId={categoryId}
+            onClick={() => getDescriptionProduct({ category, position })}
         >
             <div className="textZone">
                 <div className="img">
