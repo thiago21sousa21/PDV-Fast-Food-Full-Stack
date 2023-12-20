@@ -1,10 +1,15 @@
+import { useState } from "react";
 import { styled } from "styled-components";
 
 
 const Header = () => {
 
+    const [selected, setSelected] = useState('.orders')
+
     return (
-        <CsHeader>
+        <CsHeader
+            $selected={selected}
+        >
             <div className="logo">
                 <div className="imageLogo">
                     <ion-icon name="fast-food-outline"></ion-icon>
@@ -12,9 +17,24 @@ const Header = () => {
                 <p>FastFood</p>
             </div>
             <div className="pages">
-                <button>pedidos</button>
-                <button>cozinha</button>
-                <button>retirada</button>
+                <button
+                    className="orders"
+                    onClick={() => setSelected('.orders')}
+                >
+                    pedidos
+                </button>
+                <button
+                    className="kitchen"
+                    onClick={() => setSelected('.kitchen')}
+                >
+                    cozinha
+                </button>
+                <button
+                    className="pickup"
+                    onClick={() => setSelected('.pickup')}
+                >
+                    retirada
+                </button>
             </div>
         </CsHeader>
     );
@@ -49,10 +69,17 @@ const CsHeader = styled.div`
 
     .pages{
         display: flex;
+
+        ${p => p.$selected}{
+            background-color: #0c3d0c;
+        }
     }
 
     button{
-        border-radius: 4px;
-        
+        border-radius: 12px;
+        background-color: #125C13;
+        margin: 0 5px;
+        cursor: pointer;
+        color: white;
     }
 `
