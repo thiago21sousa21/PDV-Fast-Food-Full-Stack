@@ -9,7 +9,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [products, setProducts] = useState(undefined)
+  const [products, setProducts] = useState(undefined);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BASE_URL}/products`)
@@ -23,7 +24,7 @@ function App() {
   }, [])
 
   return (
-    <productsContext.Provider value={{ products, setProducts }}>
+    <productsContext.Provider value={{ products, setProducts, cart, setCart }}>
       <CsApp>
         <BrowserRouter>
           <Header />
