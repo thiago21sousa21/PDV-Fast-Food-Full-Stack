@@ -19,7 +19,6 @@ const Products = () => {
 
     const getDescriptionProduct = ({ category, position }) => {
         const product = products[category][position];
-        alert(product.name)
         console.log(product)
         setDisplayDescription(product)
     }
