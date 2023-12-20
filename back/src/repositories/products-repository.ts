@@ -19,7 +19,12 @@ export async function getProducts() {
             take: 4
         }),
     ])
-    return result
+    return {
+        combos: result[0],
+        dishes: result[1],
+        drinks: result[2],
+        desserts: result[3]
+    }
 }
 
 

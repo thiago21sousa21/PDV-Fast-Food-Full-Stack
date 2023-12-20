@@ -44,7 +44,7 @@ const products: NewProduct[] = [
     },
     {
         name: 'Sukita',
-        image: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.tcdn.com.br%2Fimg%2Fimg_prod%2F791033%2Frefrigerante_sukita_limao_pet_2l_7989_1_59711b09c6f6475f7db0b19bdd190068.jpg&tbnid=yPTiS8clEkf-3M&vet=12ahUKEwiA1Irj65SDAxU5BbkGHXr8AtIQMyg8egUIARDrAQ..i&imgrefurl=https%3A%2F%2Fwww.centerdoces.com.br%2Fbebidas%2Frefrigerantes%2Frefrigerante-sukita-limao-pet-2l&docid=qpX848N-etHu2M&w=1088&h=2000&q=refrigerante&hl=en&ved=2ahUKEwiA1Irj65SDAxU5BbkGHXr8AtIQMyg8egUIARDrAQ',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY4Eqvc6LihIdZefDw_XhEtb2f3KbpDc3HomnrgA8vPB5DtreCSflUasfiKBLHxZoxyNY&usqp=CAU',
         description: '2l',
         categoryId: 3,
         value: 1000
@@ -65,21 +65,21 @@ const products: NewProduct[] = [
     },
     {
         name: 'Coca-cola',
-        image: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fcoopsp.vtexassets.com%2Farquivos%2Fids%2F215355-800-auto%3Fv%3D637919527186470000%26width%3D800%26height%3Dauto%26aspect%3Dtrue&tbnid=HZOO0-yjYG4ejM&vet=12ahUKEwiA1Irj65SDAxU5BbkGHXr8AtIQMyhIegUIARCGAg..i&imgrefurl=https%3A%2F%2Fwww.coopsupermercado.com.br%2Frefrigerante-coca-cola-lata-350ml-s%2Fp&docid=eT3-siFJmeM-JM&w=800&h=800&q=refrigerante&hl=en&ved=2ahUKEwiA1Irj65SDAxU5BbkGHXr8AtIQMyhIegUIARCGAg',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNnPlPOFP3Jm68N_kmD5L_luK5h9wEsPiIkqhSH9E1KrLnponP9mMY_eop12-skU4RZn8&usqp=CAU',
         description: '500ml',
         categoryId: 3,
         value: 1000
     },
     {
         name: 'Bolinho de chocolate',
-        image: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fkitutespanificadora.com.br%2Fwp-content%2Fuploads%2F2019%2F01%2FSOBREMESA-SENSACAO.png&tbnid=Ne98s9-vZEPzsM&vet=12ahUKEwi2pNzZ8JSDAxUaAbkGHSIpBagQMygQegQIARB0..i&imgrefurl=https%3A%2F%2Fkitutespanificadora.com.br%2Fsobremesas%2F&docid=DdYhggyYbEtNhM&w=1152&h=768&q=sobremesa&hl=en&ved=2ahUKEwi2pNzZ8JSDAxUaAbkGHSIpBagQMygQegQIARB0',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf-CphvTKwihmh9R03UwQ_jH_ykgYz3SwPV_PYpzu-IQ8pCv2fgRe4qLaN4x8LmL_tUdA&usqp=CAU',
         description: '400g',
         categoryId: 4,
         value: 2000
     },
     {
         name: 'Pudim',
-        image: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Ftdc01z.vteximg.com.br%2Farquivos%2Fids%2F159103-1000-1000%2F16156-pudim-de-leite-em-po-cordeiro.png%3Fv%3D637897726883800000&tbnid=vmEzK1JuqAB2JM&vet=12ahUKEwi2pNzZ8JSDAxUaAbkGHSIpBagQMygwegUIARDBAQ..i&imgrefurl=https%3A%2F%2Fwww.supercordeiro.com.br%2F16156-sobr-pudim-leite-po-cordeiro-kg%2Fp&docid=DsxohUssHOIwhM&w=1000&h=1000&q=sobremesa&hl=en&ved=2ahUKEwi2pNzZ8JSDAxUaAbkGHSIpBagQMygwegUIARDBAQ',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnGSiNR6Zl81sFmD6K1Jeooexri_2ICy6n4qKADqi-k9xnShEMyYzCHC618FMHhXs3FCQ&usqp=CAU',
         description: '500mg',
         categoryId: 4,
         value: 2000
@@ -107,7 +107,7 @@ const products: NewProduct[] = [
     },
     {
         name: 'Molho branco',
-        image: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fpng.pngtree.com%2Fpng-clipart%2F20231006%2Foriginal%2Fpngtree-white-sauce-mayonnaise-png-image_13131052.png&tbnid=UovuUUcFho18UM&vet=12ahUKEwjJu-G2-pSDAxXvM7kGHcyyBEMQMygeegUIARC8AQ..i&imgrefurl=https%3A%2F%2Fpt.pngtree.com%2Ffreepng%2Fwhite-sauce-mayonnaise_13131052.html&docid=N5atHfM7qAzAvM&w=1200&h=1200&q=molho%20branco&hl=en&ved=2ahUKEwjJu-G2-pSDAxXvM7kGHcyyBEMQMygeegUIARC8AQ',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWXyeNkiZY2M1P3yi-zENxTZR1LRxHoavE_QAeReU2NaO3GfSvlA8N7QUzNwzsBzAgUQM&usqp=CAU',
         description: '30g',
         categoryId: 2,
         value: 500
