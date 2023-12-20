@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import ProductInRevision from "./ProductInRevision";
 
-const Revision = () => {
+const Revision = ({ displayDescription }) => {
     return (
         <CsRevision>
             <h1>Revise seu pedido!</h1>
-            <ProductInRevision />
+            <ProductInRevision
+                displayDescription={displayDescription}
+            />
         </CsRevision>
     )
 }

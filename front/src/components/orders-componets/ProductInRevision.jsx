@@ -1,9 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const ProductInRevision = () => {
+const ProductInRevision = ({ displayDescription }) => {
 
     const [cont, setCont] = useState(1)
+    //  console.log(displayDescription)
+    const { image, name, value, description } = displayDescription;
 
     const whatAmoutnt = (operation) => {
         let newValue;
@@ -19,13 +21,15 @@ const ProductInRevision = () => {
 
     return (
         <CsProductInRevision>
-            <div className="moldeImg"></div>
+            <div className="moldeImg">
+                <img src={image} alt="" />
+            </div>
             <div className="moldeDescription">
                 <div className="moldeTitle">
-                    <h1>nomde do tipulo</h1>
-                    <h1>valor</h1>
+                    <h1>{name}</h1>
+                    <h1>{value}</h1>
                 </div>
-                <h2>asdfasdfasdf asdfasdf asdf asdf asdfasdffasdf asdfasdfasdf asdfasdfasdf</h2>
+                <h2>{description}</h2>
                 <div className="moldeCont">
                     <ion-icon
                         name="remove-circle"
@@ -56,6 +60,10 @@ const CsProductInRevision = styled.div`
         width: 30%;
 
         height: 200px;
+
+        img{
+            height: 100%;
+        }
     }
 
     .moldeDescription{

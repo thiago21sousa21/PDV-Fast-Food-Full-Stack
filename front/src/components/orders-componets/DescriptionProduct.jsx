@@ -10,7 +10,9 @@ const DescriptionProduct = ({ setDisplayDescription, displayDescription }) => {
             >
                 x
             </div>
-            <Revision />
+            <Revision
+                displayDescription={displayDescription}
+            />
         </CsDescriptionProduct>
     )
 }
