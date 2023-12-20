@@ -40,6 +40,12 @@ const Products = () => {
 export default Products;
 
 const CsProducts = styled.div`
+    font-family: roboto;
+
+    h2{
+        font-size: 30px;
+    }
+
    .container{
     display: flex;
     flex-direction: column;

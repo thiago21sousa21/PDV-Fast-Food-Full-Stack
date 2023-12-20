@@ -18,4 +18,9 @@ const CsSearchBar = styled.div`
     max-width: 50%;
 
     margin: 20px 0;
+
+    h1{
+        font-family: roboto;
+        font-size: 40px;
+    }
 `;

@@ -25,10 +25,13 @@ const CsProduct = styled.div`
     height: 233.34px;
     border-radius: 15px;
     background-color: ${p => p.$categoryId === 1 ? 'pink' : p.$categoryId === 4 ? 'green' : 'yellow'};
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
     display: flex;
     flex-direction: column;
     justify-content: end;
+
+    cursor: pointer;
 
     .textZone{
         width: 100%;
@@ -55,6 +58,11 @@ const CsProduct = styled.div`
 
         h1{
             margin-top: 55px;
+            font-size: 20px;
+        }
+        h2{
+           
+            font-size: 15px;
         }
     }
 `

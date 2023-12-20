@@ -42,5 +42,9 @@ const CsCategories = styled.div`
     justify-content: space-between;
    }
    margin: 20px 0;
+   font-family: roboto;
 
+   h2{
+        font-size: 30px;
+    }
 `
