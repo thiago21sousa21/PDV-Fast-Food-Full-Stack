@@ -8,6 +8,8 @@ import DescriptionProduct from "./DescriptionProduct";
 
 const Products = () => {
     const { products } = useContext(productsContext)
+    const [displayDescription, setDisplayDescription] = useState(undefined);
+
     if (!products) {
         return (
             <CsLoader>
@@ -15,62 +17,37 @@ const Products = () => {
             </CsLoader>)
     }
 
-    const [displayDescription, setDisplayDescription] = useState(undefined);
     const getDescriptionProduct = ({ category, position }) => {
         const product = products[category][position];
+        alert(product.name)
         console.log(product)
         setDisplayDescription(product)
     }
-
-    const { combos, desserts, drinks } = products;
     return (
         <CsProducts>
             <h2>Produtos</h2>
             <p>Selecione um produto para adicionar ao seu pedido</p>
             <div className="container">
                 {displayDescription && <DescriptionProduct setDisplayDescription={setDisplayDescription} />}
-                <div className="subContainer">
-                    {
-                        combos.map((info, idx) => (
-                            <Product
-                                key={idx}
-                                info={info}
-                                setDisplayDescription={setDisplayDescription}
-                                category={'combos'}
-                                position={idx}
-                                getDescriptionProduct={getDescriptionProduct}
-                            />
-                        ))
-                    }
-                </div>
-                <div className="subContainer">
-                    {
-                        desserts.map((info, idx) => (
-                            <Product
-                                key={idx}
-                                info={info}
-                                setDisplayDescription={setDisplayDescription}
-                                category={'desserts'}
-                                position={idx}
-                                getDescriptionProduct={getDescriptionProduct}
-                            />
-                        ))
-                    }
-                </div>
-                <div className="subContainer">
-                    {
-                        drinks.map((info, idx) => (
-                            <Product
-                                key={idx}
-                                info={info}
-                                setDisplayDescription={setDisplayDescription}
-                                category={'drinks'}
-                                position={idx}
-                                getDescriptionProduct={getDescriptionProduct}
-                            />
-                        ))
-                    }
-                </div>
+                {Object.keys(products).map((cat, index) => {
+                    if (cat === 'dishes') return <div key={index}></div>;
+                    return (
+                        <div className="subContainer " key={index}>
+                            {products[cat].map((info, idx) => (
+                                <Product
+                                    key={idx}
+                                    info={info}
+                                    setDisplayDescription={setDisplayDescription}
+                                    category={cat}
+                                    position={idx}
+                                    getDescriptionProduct={getDescriptionProduct}
+                                />
+                            ))}
+
+                        </div>
+
+                    )
+                })}
             </div>
         </CsProducts>
     );
