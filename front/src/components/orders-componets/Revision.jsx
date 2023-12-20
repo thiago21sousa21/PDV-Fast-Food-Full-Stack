@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ProductInRevision from "./ProductInRevision";
+import Addictionais from "./Additionals";
 
 const Revision = ({ displayDescription }) => {
     return (
@@ -8,6 +9,7 @@ const Revision = ({ displayDescription }) => {
             <ProductInRevision
                 displayDescription={displayDescription}
             />
+            <Addictionais />
         </CsRevision>
     )
 }
