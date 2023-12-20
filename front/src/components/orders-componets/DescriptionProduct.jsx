@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import Revision from "./Revision";
 
-const DescriptionProduct = ({ setDisplayDescription }) => {
+const DescriptionProduct = ({ setDisplayDescription, displayDescription }) => {
 
     return (
         <CsDescriptionProduct>
@@ -9,6 +10,7 @@ const DescriptionProduct = ({ setDisplayDescription }) => {
             >
                 x
             </div>
+            <Revision />
         </CsDescriptionProduct>
     )
 }
@@ -16,7 +18,7 @@ const DescriptionProduct = ({ setDisplayDescription }) => {
 export default DescriptionProduct;
 
 const CsDescriptionProduct = styled.div`
-    border: 4px solid red;
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
     height: 100vh;
 
@@ -24,6 +26,8 @@ const CsDescriptionProduct = styled.div`
     left: 0;
     top: 0;
     z-index: 100;
+
+    overflow-y: scroll;
 
     .fechar{
         position: absolute;

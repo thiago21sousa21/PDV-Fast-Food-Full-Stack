@@ -28,26 +28,34 @@ const Products = () => {
             <h2>Produtos</h2>
             <p>Selecione um produto para adicionar ao seu pedido</p>
             <div className="container">
-                {displayDescription && <DescriptionProduct setDisplayDescription={setDisplayDescription} />}
-                {Object.keys(products).map((cat, index) => {
-                    if (cat === 'dishes') return <div key={index}></div>;
-                    return (
-                        <div className="subContainer " key={index}>
-                            {products[cat].map((info, idx) => (
-                                <Product
-                                    key={idx}
-                                    info={info}
-                                    setDisplayDescription={setDisplayDescription}
-                                    category={cat}
-                                    position={idx}
-                                    getDescriptionProduct={getDescriptionProduct}
-                                />
-                            ))}
-
-                        </div>
-
-                    )
-                })}
+                {
+                    displayDescription && (
+                        <DescriptionProduct
+                            setDisplayDescription={setDisplayDescription}
+                            displayDescription={displayDescription}
+                        />
+                    )}
+                {
+                    Object.keys(products).map((cat, index) => {
+                        if (cat === 'dishes') return <div key={index}></div>;
+                        return (
+                            <div className="subContainer " key={index}>
+                                {
+                                    products[cat].map((info, idx) => (
+                                        <Product
+                                            key={idx}
+                                            info={info}
+                                            setDisplayDescription={setDisplayDescription}
+                                            category={cat}
+                                            position={idx}
+                                            getDescriptionProduct={getDescriptionProduct}
+                                        />
+                                    ))
+                                }
+                            </div>
+                        )
+                    })
+                }
             </div>
         </CsProducts>
     );
@@ -68,8 +76,17 @@ const CsProducts = styled.div`
 
     .subContainer{
         display: flex;
-        justify-content: space-between;
+        //justify-content: space-between;
+        .marginLeft{
+            margin-left: 12%;
+        }
+        .marginLeft:nth-child(4n +1){
+            margin-left: 0;
+        }
+
+
         margin: 10px 0;
+        //border: 1px solid;
     }
 
    }

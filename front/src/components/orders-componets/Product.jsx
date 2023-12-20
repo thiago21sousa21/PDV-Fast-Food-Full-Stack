@@ -6,6 +6,7 @@ const Product = ({ info, category, position, getDescriptionProduct }) => {
         <CsProduct
             $categoryId={categoryId}
             onClick={() => getDescriptionProduct({ category, position })}
+            className="marginLeft"
         >
             <div className="textZone">
                 <div className="img">
@@ -26,6 +27,8 @@ const CsProduct = styled.div`
     border-radius: 15px;
     background-color: ${p => p.$categoryId === 1 ? 'pink' : p.$categoryId === 4 ? 'green' : 'yellow'};
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    //margin-left: 20px;
 
     display: flex;
     flex-direction: column;
