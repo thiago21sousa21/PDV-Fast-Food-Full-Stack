@@ -5,10 +5,22 @@ import Orders from './pages/orders-page'
 import { styled } from "styled-components";
 import Header from './components/header/Header';
 import productsContext from './contexts/products-context';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function App() {
   const [products, setProducts] = useState(undefined)
+
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_BASE_URL}/products`)
+      .then(r => {
+        console.log(r.data)
+        setProducts(r.data)
+      })
+      .catch(e => {
+        console.log(e)
+      })
+  }, [])
 
   return (
     <productsContext.Provider value={{ products, setProducts }}>

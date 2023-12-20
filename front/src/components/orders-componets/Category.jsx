@@ -15,5 +15,9 @@ export default Category;
 
 const CsCategory = styled.div`
     width: 165px;
-    height: 100px
+    height: 100px;
+    text-align: center;
+    img{
+        height: 70px;
+    }
 `

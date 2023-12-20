@@ -2,20 +2,15 @@ import styled from "styled-components";
 import { useContext } from "react";
 import productsContext from "../../contexts/products-context";
 import Product from "./Product";
+import { Oval } from 'react-loader-spinner'
+
 
 const Products = () => {
     const { products } = useContext(productsContext)
-    //if (!products) return <></>;
-
-    const combos = [1, 1, 1, 1];
-    const acompanhamentos = [1, 1, 1, 1];
-    const sobremesas = [1, 1, 1, 1];
-
-    const data = {
-        combos,
-        acompanhamentos,
-        sobremesas,
-    }
+    if (!products) return <CsLoader>
+        <Oval />
+    </CsLoader>
+    const { combos, desserts, drinks } = products;
 
     return (
         <CsProducts>
@@ -24,17 +19,17 @@ const Products = () => {
             <div className="container">
                 <div className="subContainer">
                     {
-                        combos.map((numb, idx) => <Product key={idx} data={numb} />)
+                        combos.map((info, idx) => <Product key={idx} info={info} />)
                     }
                 </div>
                 <div className="subContainer">
                     {
-                        acompanhamentos.map((numb, idx) => <Product key={idx} data={numb} />)
+                        desserts.map((info, idx) => <Product key={idx} info={info} />)
                     }
                 </div>
                 <div className="subContainer">
                     {
-                        sobremesas.map((numb, idx) => <Product key={idx} data={numb} />)
+                        drinks.map((info, idx) => <Product key={idx} info={info} />)
                     }
                 </div>
             </div>
@@ -57,4 +52,9 @@ const CsProducts = styled.div`
 
    }
    margin: 20px 0;
+ 
+`;
+const CsLoader = styled.div`
+    display: flex;
+    justify-content: center;
 `
