@@ -9,7 +9,7 @@ const Header = () => {
                 <div className="imageLogo">
                     <ion-icon name="fast-food-outline"></ion-icon>
                 </div>
-                <p>fastfood</p>
+                <p>FastFood</p>
             </div>
             <div className="pages">
                 <button>pedidos</button>
@@ -30,9 +30,21 @@ const CsHeader = styled.div`
 
     display: flex;
     justify-content: space-between;
+    padding: 5px 20px;
 
     .logo{
         display: flex;
+        align-items: center;
+
+        background-color: white;
+        color: #125C13;
+        border-radius: 15px;
+        .imageLogo{
+            margin-left: 10px;
+        }
+        p{
+            margin-right: 10px;
+        }
     }
 
     .pages{
