@@ -3,13 +3,14 @@ import ProductInRevision from "./ProductInRevision";
 import Addictionais from "./Additionals";
 
 const Revision = ({ displayDescription }) => {
+    const { categoryId } = displayDescription;
     return (
         <CsRevision>
             <h1>Revise seu pedido!</h1>
             <ProductInRevision
                 displayDescription={displayDescription}
             />
-            <Addictionais />
+            {categoryId === 1 && <Addictionais categoryId={categoryId} />}
         </CsRevision>
     )
 }
