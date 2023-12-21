@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const UnitAdditional = ({ info }) => {
     const [isChecked, setIschecked] = useState(false);
-    console.log(info)
     const { value, name, description, image } = info;
     return (
         <CsUnitAdditional>

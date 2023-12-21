@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import UnitAdditional from "./UnitAdditional";
 import { useContext } from "react";
-import productsContext from "../../contexts/products-context";
+import { ProductsContext } from "../../contexts/ProductsContext";
 
 const Addictionais = ({ categoryId }) => {
-    const { products } = useContext(productsContext);
+    const { products } = useContext(ProductsContext);
 
 
     return (

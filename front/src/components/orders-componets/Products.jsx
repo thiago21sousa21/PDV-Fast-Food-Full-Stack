@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { useContext, useState } from "react";
-import productsContext from "../../contexts/products-context";
 import Product from "./Product";
 import { Oval } from 'react-loader-spinner'
 import DescriptionProduct from "./DescriptionProduct";
+import { ProductsContext } from "../../contexts/ProductsContext";
 
 
 const Products = () => {
-    const { products } = useContext(productsContext)
+    const { products } = useContext(ProductsContext)
     const [displayDescription, setDisplayDescription] = useState(undefined);
 
     if (!products) {

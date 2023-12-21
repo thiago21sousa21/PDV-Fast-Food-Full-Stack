@@ -4,38 +4,26 @@ import Pickups from './pages/pickup-page'
 import Orders from './pages/orders-page'
 import { styled } from "styled-components";
 import Header from './components/header/Header';
-import productsContext from './contexts/products-context';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { CartProvider } from './contexts/CardContext';
+import { ProductsProvider } from './contexts/ProductsContext';
 
 function App() {
-  const [products, setProducts] = useState(undefined);
-  const [cart, setCart] = useState([]);
-
-  useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BASE_URL}/products`)
-      .then(r => {
-        console.log(r.data)
-        setProducts(r.data)
-      })
-      .catch(e => {
-        console.log(e)
-      })
-  }, [])
 
   return (
-    <productsContext.Provider value={{ products, setProducts, cart, setCart }}>
-      <CsApp>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path='/cozinha' element={<Kitchen />} />
-            <Route path='/' element={<Orders />} />
-            <Route path='/retirada' element={<Pickups />} />
-          </Routes>
-        </BrowserRouter>
-      </CsApp>
-    </productsContext.Provider>
+    <ProductsProvider>
+      <CartProvider>
+        <CsApp>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path='/cozinha' element={<Kitchen />} />
+              <Route path='/' element={<Orders />} />
+              <Route path='/retirada' element={<Pickups />} />
+            </Routes>
+          </BrowserRouter>
+        </CsApp>
+      </CartProvider>
+    </ProductsProvider>
   )
 }
 

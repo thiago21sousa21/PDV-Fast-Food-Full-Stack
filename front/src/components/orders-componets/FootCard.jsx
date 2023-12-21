@@ -18,7 +18,17 @@ const FootCard = (props) => {
                 </div>
             </div>
             <div className="cancelOrTerminate">
-                <button>{isRevision ? 'Continuar Adicionando' : 'Cancelar'}</button>
+                {
+                    isRevision ?
+                        <button
+
+                        >
+                            Adicionar ao carrinho
+                        </button> :
+                        <button>Cancelar</button>
+                }
+
+
                 <button className="finish">Finalizar pedido</button>
             </div>
         </CsFootCard>
