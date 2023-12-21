@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-const FootCard = () => {
+const FootCard = (props) => {
+    const { isRevision } = props;
 
     return (
         <CsFootCard>
@@ -17,8 +18,8 @@ const FootCard = () => {
                 </div>
             </div>
             <div className="cancelOrTerminate">
-                <button>Cancelar</button>
-                <button>Finalizar pedido</button>
+                <button>{isRevision ? 'Continuar Adicionando' : 'Cancelar'}</button>
+                <button className="finish">Finalizar pedido</button>
             </div>
         </CsFootCard>
     );
@@ -38,9 +39,13 @@ padding: 15px;
 .allSelected{
     //height: 180px;
     width: 100%;
+    border: 2px solid gray;
+    border-radius: 12px;
+
+    padding: 20px;
 
     .products{
-        border-bottom: 3px dashed red;
+        border-bottom: 2px dashed gray;
         padding:15px 0 50px 0;
         .lineProduct{
             display: flex;
@@ -66,8 +71,23 @@ padding: 15px;
     align-items: end;
 
     button{
-        height: 50px;
         margin: 0 10px;
+        
+        height: 50px;
+        background-color: white;
+        color: green;
+        border: 2px solid green;
+        border-radius: 12px;
+        width: 160px;
+
+        cursor: pointer;
     }
+
+    .finish{
+        color: white;
+        background-color: green;
+        border: none;
+    }
+
 }
 `

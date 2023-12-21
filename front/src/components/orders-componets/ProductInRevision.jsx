@@ -52,14 +52,15 @@ export default ProductInRevision;
 
 const CsProductInRevision = styled.div`
     display: flex;
-    justify-content: space-between;
+    //justify-content: space-between;
     margin-top: 40px;
 
     .moldeImg{
         border-radius: 12px;
         width: 30%;
 
-        height: 200px;
+        height: 180px;
+        width: 180px;
 
         img{
             height: 100%;
@@ -73,9 +74,9 @@ const CsProductInRevision = styled.div`
 
         display: flex;
         flex-direction: column;
-        //justify-content: space-between;
 
         position: relative;
+        margin-left: 30px;
 
         h2{
             margin-top: 5px;
@@ -84,10 +85,10 @@ const CsProductInRevision = styled.div`
         }
 
         .moldeCont{
-            height: 35px;
+            height: 40px;
             width: 120px;
             color: green;
-            border-radius: 17.5px;
+            border-radius: 20px;
             border: 3px solid green;
 
             position: absolute;
@@ -107,20 +108,21 @@ const CsProductInRevision = styled.div`
 
             ion-icon{
                 cursor: pointer;
+                color: green;
             }
 
             ion-icon:nth-child(1){
                 position: absolute;
                 top: 50%;
                 left: 0;
-                transform: translate(-7px, -51%);
+                transform: translate(-10px, -50%);
             }
 
             ion-icon:nth-child(3){
                 position: absolute;
                 top: 50%;
                 right: 0;
-                transform: translate(7px, -51%);
+                transform: translate(10px, -50%);
             }
         }
     }

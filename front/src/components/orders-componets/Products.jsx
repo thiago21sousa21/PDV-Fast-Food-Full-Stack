@@ -33,7 +33,8 @@ const Products = () => {
                             setDisplayDescription={setDisplayDescription}
                             displayDescription={displayDescription}
                         />
-                    )}
+                    )
+                }
                 {
                     Object.keys(products).map((cat, index) => {
                         if (cat === 'dishes') return <div key={index}></div>;

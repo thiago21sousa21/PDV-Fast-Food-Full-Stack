@@ -5,13 +5,9 @@ const DescriptionProduct = ({ setDisplayDescription, displayDescription }) => {
 
     return (
         <CsDescriptionProduct>
-            <div className="fechar"
-                onClick={() => setDisplayDescription(undefined)}
-            >
-                x
-            </div>
             <Revision
                 displayDescription={displayDescription}
+                setDisplayDescription={setDisplayDescription}
             />
         </CsDescriptionProduct>
     )
@@ -31,22 +27,5 @@ const CsDescriptionProduct = styled.div`
 
     overflow-y: scroll;
 
-    .fechar{
-        position: absolute;
-        top: 10px;
-        right: 20px;
-
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: red;
-
-        cursor: pointer;
-
-        color: white;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    
 `;

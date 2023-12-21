@@ -53,5 +53,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+*{
+	font-family: roboto;
+}
+
 `;
 export default GlobalStyle;

@@ -23,9 +23,9 @@ export default Addictionais;
 const CsAddictionais = styled.div`
     width: 100%;
     height: 300px;
-    border: 1px solid;
     overflow-y: auto;
-    *{border: 1px solid;}
+    //border: 1px solid;
+    /* *{border: 1px solid;} */
 
     margin-top: 40px;
 

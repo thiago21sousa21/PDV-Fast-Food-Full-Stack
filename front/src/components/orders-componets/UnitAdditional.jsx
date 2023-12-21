@@ -50,6 +50,10 @@ const CsUnitAdditional = styled.div`
 
     .moldeInfo{
         padding-left: 30px;
+
+        h1{
+            font-size: 20px;
+        }
     }
 
     .valueAndCheck{
