@@ -3,22 +3,33 @@ import ProductInRevision from "./ProductInRevision";
 import Addictionais from "./Additionals";
 import Observation from "./Observation"
 import FootCardRevision from "./FootCardRevision";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
 const Revision = ({ displayDescription, setDisplayDescription }) => {
     const { categoryId } = displayDescription;
+    const { orderRef } = useContext(CartContext);
+
+    const handleClickCloseRevision = () => {
+        setDisplayDescription(undefined);
+        orderRef.current = {};
+    }
+
+    if (categoryId === 1) orderRef.current.order.dishes = [];
+
     return (
         <CsRevision>
             <h1>Revise seu pedido!</h1>
             <ion-icon
                 name="close-outline"
-                onClick={() => setDisplayDescription(undefined)}
+                onClick={handleClickCloseRevision}
             >
             </ion-icon>
             <ProductInRevision
                 displayDescription={displayDescription}
             />
             {categoryId === 1 && <Addictionais categoryId={categoryId} />}
-            < Observation />
+            {categoryId === 1 && < Observation />}
             <FootCardRevision />
         </CsRevision>
     )

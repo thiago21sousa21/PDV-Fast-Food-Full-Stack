@@ -19,7 +19,6 @@ const Products = () => {
 
     const getDescriptionProduct = ({ category, position }) => {
         const product = products[category][position];
-        //console.log(product)
         setDisplayDescription(product)
     }
     return (

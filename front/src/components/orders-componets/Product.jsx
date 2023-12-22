@@ -1,11 +1,23 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import styled from "styled-components";
+import { CartContext } from "../../contexts/CartContext";
+
+
 const Product = ({ info, category, position, getDescriptionProduct }) => {
-    const { image, description, name, categoryId } = info;
+    const { image, description, name, categoryId, id } = info;
+    const { orderRef } = useContext(CartContext)
+
+    const handleClickInProduct = () => {
+        getDescriptionProduct({ category, position })
+        orderRef.current.order = {}
+        orderRef.current.order.id = id;
+    }
+
     return (
         <CsProduct
             $categoryId={categoryId}
-            onClick={() => getDescriptionProduct({ category, position })}
+            onClick={handleClickInProduct}
             className="marginLeft"
         >
             <div className="textZone">

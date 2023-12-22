@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
+import { CartContext } from "../../contexts/CartContext";
 
 const ProductInRevision = ({ displayDescription }) => {
+    const { orderRef } = useContext(CartContext);
 
     const [cont, setCont] = useState(1)
-    //  console.log(displayDescription)
     const { image, name, value, description } = displayDescription;
 
+    orderRef.current.order.amount = cont;
     const whatAmoutnt = (operation) => {
         let newValue;
         if (operation === 'add') {

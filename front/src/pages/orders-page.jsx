@@ -4,7 +4,7 @@ import Categories from "../components/orders-componets/Categories";
 import Products from "../components/orders-componets/Products";
 import FootCard from "../components/orders-componets/FootCard";
 import { useContext } from "react";
-import { CartContext } from "../contexts/CardContext";
+import { CartContext } from "../contexts/CartContext";
 import { useEffect } from 'react';
 import axios from 'axios';
 import { ProductsContext } from "../contexts/ProductsContext";
@@ -12,8 +12,6 @@ import { ProductsContext } from "../contexts/ProductsContext";
 const Orders = () => {
     const { cart } = useContext(CartContext);
     const { setProducts } = useContext(ProductsContext)
-    console.log(cart);
-
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_BASE_URL}/products`)

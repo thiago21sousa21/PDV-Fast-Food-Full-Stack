@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
+import { CartContext } from "../../contexts/CartContext";
 
 const UnitAdditional = ({ info }) => {
     const [isChecked, setIschecked] = useState(false);
-    const { value, name, description, image } = info;
+    const { value, name, description, image, id } = info;
+    const { orderRef } = useContext(CartContext)
+
+    const addRemove = () => {
+        const isDisheIncluded = orderRef.current.order.dishes.includes(id);
+        if (!isDisheIncluded) return orderRef.current.order.dishes.push(id);
+        orderRef.current.order.dishes = orderRef.current.order.dishes.filter(i => i !== id)
+    }
+
+    const handleCheckDishe = () => {
+        setIschecked(!isChecked);
+        addRemove();
+    }
+
     return (
         <CsUnitAdditional>
             <div className="moldeImageInfo molde">
@@ -17,7 +31,7 @@ const UnitAdditional = ({ info }) => {
             </div>
             <div className="valueAndCheck molde">
                 <p>{`R$ ${value}`}</p>
-                <div className="check" onClick={() => setIschecked(!isChecked)}>
+                <div className="check" onClick={handleCheckDishe}>
                     {isChecked && <div className="circle"></div>}
                 </div>
             </div>

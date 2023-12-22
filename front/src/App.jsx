@@ -4,8 +4,9 @@ import Pickups from './pages/pickup-page'
 import Orders from './pages/orders-page'
 import { styled } from "styled-components";
 import Header from './components/header/Header';
-import { CartProvider } from './contexts/CardContext';
+import { CartProvider } from './contexts/CartContext';
 import { ProductsProvider } from './contexts/ProductsContext';
+
 
 function App() {
 
