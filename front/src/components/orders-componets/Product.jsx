@@ -5,13 +5,14 @@ import { CartContext } from "../../contexts/CartContext";
 
 
 const Product = ({ info, category, position, getDescriptionProduct }) => {
-    const { image, description, name, categoryId, id } = info;
+    const { image, description, name, categoryId, id, value } = info;
     const { orderRef } = useContext(CartContext)
 
     const handleClickInProduct = () => {
         getDescriptionProduct({ category, position })
         orderRef.current.order = {}
         orderRef.current.order.id = id;
+        orderRef.current.order.value = value;
     }
 
     return (

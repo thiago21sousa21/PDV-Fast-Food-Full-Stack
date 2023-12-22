@@ -75,9 +75,9 @@ const CsProducts = styled.div`
 
     .subContainer{
         display: flex;
-        //justify-content: space-between;
+        justify-content: space-between;
         .marginLeft{
-            margin-left: 12%;
+            margin-left: 20px;
         }
         .marginLeft:nth-child(4n +1){
             margin-left: 0;

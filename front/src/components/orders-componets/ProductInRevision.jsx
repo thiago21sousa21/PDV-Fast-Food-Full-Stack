@@ -9,15 +9,16 @@ const ProductInRevision = ({ displayDescription }) => {
     const { image, name, value, description } = displayDescription;
 
     orderRef.current.order.amount = cont;
+    orderRef.current.order.value = cont * value;
     const whatAmoutnt = (operation) => {
-        let newValue;
+        let newCont;
         if (operation === 'add') {
-            newValue = cont + 1;
-            setCont(newValue);
+            newCont = cont + 1;
+            setCont(newCont);
         }
         if (operation === 'delete' && cont > 1) {
-            newValue = cont - 1;
-            setCont(newValue);
+            newCont = cont - 1;
+            setCont(newCont);
         }
     }
 

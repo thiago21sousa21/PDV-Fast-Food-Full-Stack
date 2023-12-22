@@ -8,14 +8,19 @@ const UnitAdditional = ({ info }) => {
     const { orderRef } = useContext(CartContext)
 
     const addRemove = () => {
-        const isDisheIncluded = orderRef.current.order.dishes.includes(id);
-        if (!isDisheIncluded) return orderRef.current.order.dishes.push(id);
-        orderRef.current.order.dishes = orderRef.current.order.dishes.filter(i => i !== id)
+        const isDisheIncluded = orderRef.current.order.dishes.some(e => e.id === id);
+        if (!isDisheIncluded) {
+            orderRef.current.order.value += value * orderRef.current.order.amount;
+            return orderRef.current.order.dishes.push({ id, value });
+        }
+        orderRef.current.order.value -= value * orderRef.current.order.amount;
+        orderRef.current.order.dishes = orderRef.current.order.dishes.filter(e => e.id !== id)
     }
 
     const handleCheckDishe = () => {
         setIschecked(!isChecked);
         addRemove();
+        console.log(orderRef.current.order)
     }
 
     return (

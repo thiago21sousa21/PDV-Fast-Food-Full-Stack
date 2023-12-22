@@ -32,6 +32,9 @@ const CsObservation = styled.div`
     textarea{
         width: 100%;
         background-color: #F4F4F4;
-        outline: none;
+        outline: 0;
+        border-radius: 12px;
+        border: 1ps solid gray;
+        padding: 10px;
     }
 `;
