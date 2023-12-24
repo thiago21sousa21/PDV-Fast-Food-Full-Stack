@@ -19,7 +19,6 @@ const UnitAdditional = ({ info }) => {
             newArr.order.totalValue = newArr.order.totalValue - (value * newArr.order.amount);
             setOrderCart(newArr);
         }
-        console.log(newArr.order)
     }
 
     const handleCheckDishe = () => {
