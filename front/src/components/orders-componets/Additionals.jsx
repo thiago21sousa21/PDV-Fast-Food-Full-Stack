@@ -6,7 +6,6 @@ import { ProductsContext } from "../../contexts/ProductsContext";
 const Addictionais = ({ categoryId }) => {
     const { products } = useContext(ProductsContext);
 
-
     return (
         <CsAddictionais>
             <h1>Adicionais</h1>
@@ -24,9 +23,6 @@ const CsAddictionais = styled.div`
     width: 100%;
     height: 300px;
     overflow-y: auto;
-    //border: 1px solid;
-    /* *{border: 1px solid;} */
-
     margin-top: 40px;
 
     h1{

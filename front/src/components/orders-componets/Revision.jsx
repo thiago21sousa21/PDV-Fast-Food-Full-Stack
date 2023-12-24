@@ -3,19 +3,25 @@ import ProductInRevision from "./ProductInRevision";
 import Addictionais from "./Additionals";
 import Observation from "./Observation"
 import FootCardRevision from "./FootCardRevision";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
 const Revision = ({ displayDescription, setDisplayDescription }) => {
-    const { categoryId } = displayDescription;
-    const { orderRef } = useContext(CartContext);
+    const { categoryId, value, id } = displayDescription;
+    const { setOrderCart, orderCart } = useContext(CartContext);
 
     const handleClickCloseRevision = () => {
         setDisplayDescription(undefined);
-        orderRef.current = {};
+        setOrderCart({});
     }
 
-    if (categoryId === 1) orderRef.current.order.dishes = [];
+    useEffect(() => {
+        if (categoryId === 1) {
+            const newOrder = { ...orderCart }
+            newOrder.order.dishes = [];
+            setOrderCart(newOrder)
+        }
+    }, [])
 
     return (
         <CsRevision>

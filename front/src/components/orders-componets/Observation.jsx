@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { CartContext } from "../../contexts/CartContext";
 
 const Observation = () => {
-    const { orderRef } = useContext(CartContext)
+    const { orderCart } = useContext(CartContext)
 
     const writeObservation = (e) => {
         const value = e.target.value;
-        orderRef.current.order.observation = value;
+        orderCart.order.observation = value;
     }
     return (
         <CsObservation>
@@ -18,7 +18,7 @@ const Observation = () => {
                 cols=""
                 rows="5"
                 onChange={writeObservation}
-                value={orderRef.current.order.observation}
+                value={orderCart.order.observation}
             />
         </CsObservation>
     )

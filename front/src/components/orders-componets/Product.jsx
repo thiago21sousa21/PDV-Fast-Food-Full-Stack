@@ -10,9 +10,6 @@ const Product = ({ info, category, position, getDescriptionProduct }) => {
 
     const handleClickInProduct = () => {
         getDescriptionProduct({ category, position })
-        orderRef.current.order = {}
-        orderRef.current.order.id = id;
-        orderRef.current.order.value = value;
     }
 
     return (

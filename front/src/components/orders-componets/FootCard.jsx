@@ -1,22 +1,28 @@
 import styled from "styled-components";
+import SideDisheSelected from "./SideDisheSelected";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
 const FootCard = (props) => {
     const { isRevision } = props;
-
+    const { orderCart } = useContext(CartContext)
+    const { value, name, amount, totalValue } = orderCart.order;
     return (
         <CsFootCard>
             <div className="allSelected">
                 <div className="products">
                     <div className="lineProduct">
-                        <p>1x Smash da  casa</p>
-                        <p>R$ 30,50</p>
+                        <p>{`${amount}x ${name}`}</p>
+                        <p>{`R$ ${value}`}</p>
                     </div>
+                    {orderCart.order.dishes && orderCart.order.dishes.map((info, idx) => <SideDisheSelected key={idx} info={info} />)}
                 </div>
                 <div className="totalOrder">
                     <h2>Total do pedido</h2>
-                    <h1>R$ 30,50</h1>
+                    <h1>{`R$ ${totalValue}`}</h1>
                 </div>
             </div>
+
             <div className="cancelOrTerminate">
                 {
                     isRevision ?
@@ -27,8 +33,6 @@ const FootCard = (props) => {
                         </button> :
                         <button>Cancelar</button>
                 }
-
-
                 <button className="finish">Finalizar pedido</button>
             </div>
         </CsFootCard>
@@ -71,6 +75,7 @@ padding: 15px;
             font-size: 40px;
         }
     }
+
 }
 .cancelOrTerminate{
     height: 70px;

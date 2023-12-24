@@ -3,23 +3,35 @@ import styled from "styled-components";
 import { CartContext } from "../../contexts/CartContext";
 
 const ProductInRevision = ({ displayDescription }) => {
-    const { orderRef } = useContext(CartContext);
+    const { orderCart, setOrderCart } = useContext(CartContext);
 
-    const [cont, setCont] = useState(1)
     const { image, name, value, description } = displayDescription;
 
-    orderRef.current.order.amount = cont;
-    orderRef.current.order.value = cont * value;
     const whatAmoutnt = (operation) => {
-        let newCont;
+        const newOrderCart = { ...orderCart };
         if (operation === 'add') {
-            newCont = cont + 1;
-            setCont(newCont);
+            newOrderCart.order.amount++;
+            newOrderCart.order.totalValue = newOrderCart.order.amount * newOrderCart.order.value;
+            if (newOrderCart.order.dishes && newOrderCart.order.dishes.length > 0) {
+                newOrderCart.order.totalValue = newOrderCart.order.amount * newOrderCart.order.value;
+                newOrderCart.order.dishes.forEach((e) => {
+                    newOrderCart.order.totalValue += (e.value * newOrderCart.order.amount)
+                })
+            }
+            setOrderCart(newOrderCart);
         }
-        if (operation === 'delete' && cont > 1) {
-            newCont = cont - 1;
-            setCont(newCont);
+        if (operation === 'delete' && orderCart.order.amount > 1) {
+            newOrderCart.order.amount--;
+            newOrderCart.order.totalValue = newOrderCart.order.amount * newOrderCart.order.value;
+            if (newOrderCart.order.dishes && newOrderCart.order.dishes.length > 0) {
+                newOrderCart.order.totalValue = newOrderCart.order.amount * newOrderCart.order.value;
+                newOrderCart.order.dishes.forEach((e) => {
+                    newOrderCart.order.totalValue += (e.value * newOrderCart.order.amount)
+                })
+            }
+            setOrderCart(newOrderCart);
         }
+
     }
 
     return (
@@ -39,7 +51,7 @@ const ProductInRevision = ({ displayDescription }) => {
                         onClick={() => whatAmoutnt('delete')}
                     >
                     </ion-icon>
-                    <h3>{cont}</h3>
+                    <h3>{orderCart.order.amount}</h3>
                     <ion-icon
                         name="add-circle"
                         onClick={() => whatAmoutnt('add')}

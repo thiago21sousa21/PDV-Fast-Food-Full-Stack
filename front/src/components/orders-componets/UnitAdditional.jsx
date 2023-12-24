@@ -5,22 +5,26 @@ import { CartContext } from "../../contexts/CartContext";
 const UnitAdditional = ({ info }) => {
     const [isChecked, setIschecked] = useState(false);
     const { value, name, description, image, id } = info;
-    const { orderRef } = useContext(CartContext)
+    const { orderCart, setOrderCart } = useContext(CartContext)
 
     const addRemove = () => {
-        const isDisheIncluded = orderRef.current.order.dishes.some(e => e.id === id);
-        if (!isDisheIncluded) {
-            orderRef.current.order.value += value * orderRef.current.order.amount;
-            return orderRef.current.order.dishes.push({ id, value });
+        let newArr = { ...orderCart }
+        const isIncludes = newArr.order.dishes.some(e => e.id === id);
+        if (!isIncludes) {
+            newArr.order.dishes.push({ id, name, value });
+            newArr.order.totalValue = newArr.order.totalValue + (value * newArr.order.amount);
+            setOrderCart(newArr);
+        } else if (isIncludes) {
+            newArr.order.dishes = newArr.order.dishes.filter(e => e.id !== id);
+            newArr.order.totalValue = newArr.order.totalValue - (value * newArr.order.amount);
+            setOrderCart(newArr);
         }
-        orderRef.current.order.value -= value * orderRef.current.order.amount;
-        orderRef.current.order.dishes = orderRef.current.order.dishes.filter(e => e.id !== id)
+        console.log(newArr.order)
     }
 
     const handleCheckDishe = () => {
         setIschecked(!isChecked);
         addRemove();
-        console.log(orderRef.current.order)
     }
 
     return (

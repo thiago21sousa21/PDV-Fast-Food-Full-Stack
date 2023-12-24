@@ -4,11 +4,13 @@ import Product from "./Product";
 import { Oval } from 'react-loader-spinner'
 import DescriptionProduct from "./DescriptionProduct";
 import { ProductsContext } from "../../contexts/ProductsContext";
+import { CartContext } from "../../contexts/CartContext";
 
 
 const Products = () => {
     const { products } = useContext(ProductsContext)
     const [displayDescription, setDisplayDescription] = useState(undefined);
+    const { setOrderCart } = useContext(CartContext)
 
     if (!products) {
         return (
@@ -19,6 +21,8 @@ const Products = () => {
 
     const getDescriptionProduct = ({ category, position }) => {
         const product = products[category][position];
+        const { name, id, value } = product;
+        setOrderCart({ order: { id, value, name, amount: 1, totalValue: value } })
         setDisplayDescription(product)
     }
     return (
