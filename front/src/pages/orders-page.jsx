@@ -29,7 +29,7 @@ const Orders = () => {
             <SearchBar />
             <Categories />
             <Products />
-            {cart.length > 0 && <FootCard />}
+            {cart.orders.length > 0 && <FootCard />}
         </CsOrders>
     );
 }

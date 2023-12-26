@@ -28,6 +28,7 @@ export default Observation;
 
 const CsObservation = styled.div`
     margin-top: 40px;
+    padding: 15px;
 
     textarea{
         width: 100%;

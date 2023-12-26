@@ -2,49 +2,72 @@ import styled from "styled-components";
 import SideDisheSelected from "./SideDisheSelected";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import SelectedProducts from "./SelectedProducts";
 
 const FootCard = (props) => {
     const { isRevision } = props;
-    const { orderCart } = useContext(CartContext)
-    const { value, name, amount, totalValue } = orderCart.order;
+    const { orderCart, cart, setCart } = useContext(CartContext)
+    const { value, name, amount, totalValue } = orderCart.order || {};
+
+
+    const addCart = () => {
+        const newCart = { ...cart }
+        newCart.orders.push(orderCart);
+        setCart(newCart)
+    }
+
     return (
         <CsFootCard>
             <div className="allSelected">
                 <div className="products">
-                    <div className="lineProduct">
-                        <p>{`${amount}x ${name}`}</p>
-                        <p>{`R$ ${value}`}</p>
-                    </div>
-                    {orderCart.order.dishes && orderCart.order.dishes.map((info, idx) => <SideDisheSelected key={idx} info={info} />)}
+
+                    {(cart.orders.length > 0 && !isRevision) && cart.orders.map((ord, idx) => <SelectedProducts key={idx} info={ord.order} />)}
+
+                    {isRevision && (
+                        <div className="moldeProductWithDishes">
+                            <div className="lineProduct">
+                                <p>{`${amount}x ${name}`}</p>
+                                <p>{`R$ ${value}`}</p>
+                            </div>
+                            {orderCart.order.dishes && orderCart.order.dishes.map((info, idx) => <SideDisheSelected key={idx} info={info} />)}
+                        </div>
+                    )}
                 </div>
                 <div className="totalOrder">
                     <h2>Total do pedido</h2>
-                    <h1>{`R$ ${totalValue}`}</h1>
+                    {isRevision ? (
+                        <h1>{`R$ ${totalValue}`}</h1>
+                    ) : (
+                        <h1>{`R$ ${cart.orders.reduce((total, current) => current.order.totalValue + total, 0)}`}</h1>
+                    )}
+
                 </div>
             </div>
 
-            <div className="cancelOrTerminate">
-                {
-                    isRevision ?
-                        <button
+            {
+                isRevision ?
+                    <div className="cancelOrTerminate">
+                        <button onClick={() => addCart()}>Adicionar ao carrinho</button>
+                        <button className="finish">Finalizar pedido</button>
+                    </div>
+                    :
+                    <div className="cancelOrTerminate">
+                        <button onClick={() => setCart({ orders: [], client: null })}>Cancelar</button>
+                        <button className="finish">Finalizar pedido</button>
+                    </div>
+            }
 
-                        >
-                            Adicionar ao carrinho
-                        </button> :
-                        <button>Cancelar</button>
-                }
-                <button className="finish">Finalizar pedido</button>
-            </div>
-        </CsFootCard>
+
+        </CsFootCard >
     );
 }
 
 export default FootCard;
 
 const CsFootCard = styled.div`
-width: calc(100% - 30px);
-//height: 300px;
-
+width: 100%;
+/* border: 1px solid;
+*{border: 1px solid;    } */
 display: flex;
 flex-direction: column;
 
@@ -61,6 +84,7 @@ padding: 15px;
     .products{
         border-bottom: 2px dashed gray;
         padding:15px 0 50px 0;
+        //border: 2px solid red;
         .lineProduct{
             display: flex;
             justify-content: space-between;
